@@ -12,19 +12,61 @@
             <license src="license.txt" />
             <releaseNotes src="releaseNotes.htm" />
             <dependencies>
-                <dependency type="CoreVersion">08.00.04</dependency>
+                <dependency type="coreVersion">08.00.04</dependency>
+				<dependency type="managedPackage" version="0.11.0">R7.Dnn.Extensions</dependency>
             </dependencies>
             <components>
                 <component type="Assembly">
                     <assemblies>
+                        <path>bin</path>
                         <assembly>
-                            <path>bin</path>
                             <name>R7.Dnn.Extensions.React.dll</name>
                         </assembly>
-						<!--<assembly>
-                            <path>bin</path>
-                            <name>YamlDotNet.dll</name>
-                        </assembly>-->
+                        <assembly>
+                            <name>ClearScript.dll</name>
+                        </assembly>
+                        <assembly>
+                            <name>JavaScriptEngineSwitcher.ChakraCore.dll</name>
+                        </assembly>
+                        <assembly>
+                            <name>JavaScriptEngineSwitcher.Core.dll</name>
+                        </assembly>
+                        <assembly>
+                            <name>JavaScriptEngineSwitcher.Jint.dll</name>
+                        </assembly>
+                        <assembly>
+                            <name>JavaScriptEngineSwitcher.Jurassic.dll</name>
+                        </assembly>
+                        <assembly>
+                            <name>JavaScriptEngineSwitcher.Msie.dll</name>
+                        </assembly>
+                        <assembly>
+                            <name>JavaScriptEngineSwitcher.V8.dll</name>
+                        </assembly>
+                        <assembly>
+                            <name>jint.dll</name>
+                        </assembly>
+                        <assembly>
+                            <name>JSPool.dll</name>
+                        </assembly>
+                        <assembly>
+                            <name>Jurassic.dll</name>
+                        </assembly>
+                        <assembly>
+                            <name>MsieJavaScriptEngine.dll</name>
+                        </assembly>
+                        <assembly>
+                            <name>React.Core.dll</name>
+                        </assembly>
+                        <assembly>
+                            <name>React.Web.dll</name>
+                        </assembly>
+                        <assembly>
+                            <name>VroomJs.dll</name>
+                        </assembly>
+                        <assembly>
+                            <name>WebActivatorEx.dll</name>
+                        </assembly>
                     </assemblies>
                 </component>
                 <component type="File">

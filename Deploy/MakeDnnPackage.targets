@@ -9,6 +9,15 @@
         <ItemGroup>
             <InstallBinaryFiles Include="$(MainProjectOutputPath)/R7.Dnn.Extensions.React.dll" />
 			<InstallBinaryFiles Include="$(MainProjectOutputPath)/R7.Dnn.Extensions.React.xml" />
+			<InstallBinaryFiles Include="$(MainProjectOutputPath)/React.*.dll" />
+			<InstallBinaryFiles Include="$(MainProjectOutputPath)/JSPool.dll" />
+			<InstallBinaryFiles Include="$(MainProjectOutputPath)/JavaScriptEngineSwitcher.*.dll" />
+			<InstallBinaryFiles Include="$(MainProjectOutputPath)/Jurassic.dll" />
+            <InstallBinaryFiles Include="$(MainProjectOutputPath)/jint.dll" />
+            <InstallBinaryFiles Include="$(MainProjectOutputPath)/MsieJavaScriptEngine.dll" />
+			<InstallBinaryFiles Include="$(MainProjectOutputPath)/ClearScript.dll" />
+			<InstallBinaryFiles Include="$(MainProjectOutputPath)/VroomJs.dll" />
+			<InstallBinaryFiles Include="$(MainProjectOutputPath)/WebActivatorEx.dll" />
 		</ItemGroup>
         <!-- Declare manifest files -->
         <ItemGroup>
