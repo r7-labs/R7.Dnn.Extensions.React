@@ -22,8 +22,8 @@
         <!-- Declare manifest files -->
         <ItemGroup>
             <InstallManifestFiles Include="$(MainProjectPath)/R7.Dnn.Extensions.React.dnn" />
-            <InstallManifestFiles Include="$(MainProjectPath)/license.txt" />
-            <InstallManifestFiles Include="$(MainProjectPath)/license-gpl.txt" />
+            <InstallManifestFiles Include="$(MainProjectPath)/license.htm" />
+            <InstallManifestFiles Include="$(MainProjectPath)/license-gpl.htm" />
             <InstallManifestFiles Include="$(MainProjectPath)/releaseNotes.htm" />
         </ItemGroup>
         <!-- Copy binaries -->

@@ -122,8 +122,8 @@
     <None Include="R7.Dnn.Extensions.React.dnn" />
     <None Include="R7.Dnn.Extensions.React.nuspec" />
     <None Include="releaseNotes.htm" />
-    <None Include="license.txt" />
-    <None Include="license-gpl.txt" />
+    <None Include="license.htm" />
+    <None Include="license-gpl.htm" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

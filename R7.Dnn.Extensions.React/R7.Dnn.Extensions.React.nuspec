@@ -30,7 +30,7 @@
     <files>
         <file src="bin/Release/R7.Dnn.Extensions.React.dll" target="lib/net45" /> 
         <file src="bin/Release/R7.Dnn.Extensions.React.xml" target="lib/net45" />
-        <file src="license.txt" target="lib/net45" />
-        <file src="license-gpl.txt" target="lib/net45" />
+        <file src="license.htm" target="lib/net45" />
+        <file src="license-gpl.htm" target="lib/net45" />
     </files>
 </package>
