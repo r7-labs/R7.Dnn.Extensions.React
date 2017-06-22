@@ -31,7 +31,7 @@ namespace R7.MiniGallery.React
     {
         static readonly object reactSyncRoot = new object ();
 
-        static bool _configured;
+        static volatile bool _configured;
 
         static void Configure ()
         {
