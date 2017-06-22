@@ -106,11 +106,14 @@
     <Reference Include="Telerik.Web.UI">
       <HintPath>..\packages\DotNetNuke.Web.Deprecated.8.0.4.226\lib\net40\Telerik.Web.UI.dll</HintPath>
     </Reference>
-    <Reference Include="R7.Dnn.Extensions">
-      <HintPath>..\packages\R7.Dnn.Extensions.0.11.0-alpha1\lib\net45\R7.Dnn.Extensions.dll</HintPath>
-    </Reference>
     <Reference Include="System.Diagnostics.Contracts">
       <HintPath>..\packages\System.Diagnostics.Contracts.4.3.0\lib\netstandard1.0\System.Diagnostics.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="YamlDotNet">
+      <HintPath>..\packages\YamlDotNet.4.2.1\lib\net35\YamlDotNet.dll</HintPath>
+    </Reference>
+    <Reference Include="R7.Dnn.Extensions">
+      <HintPath>..\packages\R7.Dnn.Extensions.0.11.0-alpha2\lib\net45\R7.Dnn.Extensions.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
