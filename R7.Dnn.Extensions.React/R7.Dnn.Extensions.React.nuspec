@@ -8,17 +8,15 @@
         <owners>Roman M. Yagodin</owners>
         <licenseUrl>http://www.gnu.org/licenses/lgpl.txt</licenseUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <projectUrl>https://github.com/roman-yagodin/R7.Dnn.Extensions</projectUrl>
+        <projectUrl>https://github.com/roman-yagodin/R7.Dnn.Extensions.React</projectUrl>
         <description>R7.Dnn.Extensions.React is a library for DNN Platform web CMS extensions development which provide ReactJS.NET server-side rendering support.</description>
         <summary>R7.Dnn.Extensions.React is a library for DNN Platform web CMS extensions development which provide ReactJS.NET server-side rendering support (NOT STABLE).</summary>
-        <releaseNotes>https://github.com/roman-yagodin/R7.Dnn.Extensions/blob/master/R7.Dnn.Extensions/releaseNotes.htm</releaseNotes>
+        <releaseNotes>https://github.com/roman-yagodin/R7.Dnn.Extensions.React/blob/master/R7.Dnn.Extensions.React/releaseNotes.htm</releaseNotes>
         <copyright>Copyright 2017 Roman M. Yagodin &lt;roman.yagodin@gmail.com&gt;</copyright>
         <tags>DotNetNuke DNN React</tags>
         <dependencies>
 			<dependency id="R7.Dnn.Extensions" version="0.11.0" />
             <dependency id="DotNetNuke.Web.Mvc" version="8.0.4.226" />
-			<dependency id="React.Core" version="3.0.1" />
-            <dependency id="React.Web" version="3.0.1" />
 			<dependency id="React.Web.Mvc4" version="3.0.1" />
 			<!-- additional JavaScript engines -->
             <dependency id="JavaScriptEngineSwitcher.Jint" version="2.3.0" />
