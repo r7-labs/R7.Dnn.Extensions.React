@@ -31,17 +31,17 @@ namespace R7.Dnn.Extensions.React
     {
         public static IHtmlString React<T> (this DnnHelper dnnHelper, string componentName, T props, string htmlTag = null, string containerId = null, bool clientOnly = false, bool serverOnly = false, string containerClass = null)
         {
-            return ReactRenderer.React (componentName, props, htmlTag, containerId, clientOnly, serverOnly, containerClass);
+            return DnnReact.React (componentName, props, htmlTag, containerId, clientOnly, serverOnly, containerClass);
         }
 
         public static IHtmlString ReactWithInit<T> (this DnnHelper dnnHelper, string componentName, T props, string htmlTag = null, string containerId = null, bool clientOnly = false, string containerClass = null)
         {
-            return ReactRenderer.ReactWithInit (componentName, props, htmlTag, containerId, clientOnly, containerClass);
+            return DnnReact.ReactWithInit (componentName, props, htmlTag, containerId, clientOnly, containerClass);
         }
 
         public static IHtmlString ReactInitJavaScript (this DnnHelper dnnHelper, bool clientOnly = false)
         {
-            return ReactRenderer.ReactInitJavaScript (clientOnly);
+            return DnnReact.ReactInitJavaScript (clientOnly);
         }
     }
 }

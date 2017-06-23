@@ -20,6 +20,7 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System.IO;
+using System.Web;
 using DotNetNuke.Common;
 using JavaScriptEngineSwitcher.ChakraCore;
 using JavaScriptEngineSwitcher.Core;
@@ -129,6 +130,25 @@ namespace R7.Dnn.Extensions.React
                     ReactSiteConfiguration.Configuration.AddScriptWithoutTransform (fileName);
                 }
             }
+        }
+
+        #endregion
+
+        #region Public render methods
+
+        public static IHtmlString React<T> (string componentName, T props, string htmlTag = null, string containerId = null, bool clientOnly = false, bool serverOnly = false, string containerClass = null)
+        {
+            return global::React.Web.Mvc.HtmlHelperExtensions.React (null, componentName, props, htmlTag, containerId, clientOnly, serverOnly, containerClass);
+        }
+
+        public static IHtmlString ReactWithInit<T> (string componentName, T props, string htmlTag = null, string containerId = null, bool clientOnly = false, string containerClass = null)
+        {
+            return global::React.Web.Mvc.HtmlHelperExtensions.ReactWithInit (null, componentName, props, htmlTag, containerId, clientOnly, containerClass);
+        }
+
+        public static IHtmlString ReactInitJavaScript (bool clientOnly = false)
+        {
+            return global::React.Web.Mvc.HtmlHelperExtensions.ReactInitJavaScript (null, clientOnly);
         }
 
         #endregion
