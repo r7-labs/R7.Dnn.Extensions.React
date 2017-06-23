@@ -37,14 +37,24 @@ namespace R7.Dnn.Extensions.React.Tests
             );
 
             Assert.NotNull (config.GetInstance (0).JavaScriptEngine);
-            Assert.Equal ("JurassicJsEngine", config.GetInstance (0).JavaScriptEngine.EngineName);
-            Assert.Equal (10, config.GetInstance (0).JavaScriptEngine.StartEngines);
-            Assert.Equal (25, config.GetInstance (0).JavaScriptEngine.MaxEngines);
+            Assert.Equal ("JintJsEngine", config.GetInstance (0).JavaScriptEngine.EngineName);
+            Assert.Equal (1, config.GetInstance (0).JavaScriptEngine.StartEngines);
+            Assert.Equal (50, config.GetInstance (0).JavaScriptEngine.MaxEngines);
         }
 
         [Fact]
-        public void DummyTest ()
+        public void DefaultReactApplicationConfigTest ()
         {
+            var config = new ExtensionYamlConfig<ReactApplicationConfig> (
+                Path.GetFullPath ("SomeNonExistentConfigFile.yml"), cfg => {
+                    return cfg;
+                }
+            );
+
+            Assert.NotNull (config.GetInstance (0).JavaScriptEngine);
+            Assert.Equal ("JurassicJsEngine", config.GetInstance (0).JavaScriptEngine.EngineName);
+            Assert.Equal (10, config.GetInstance (0).JavaScriptEngine.StartEngines);
+            Assert.Equal (25, config.GetInstance (0).JavaScriptEngine.MaxEngines);
         }
     }
 }

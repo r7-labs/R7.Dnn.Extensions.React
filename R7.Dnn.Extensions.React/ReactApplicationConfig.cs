@@ -31,7 +31,7 @@ namespace R7.Dnn.Extensions.React
 
     public class JavaScriptEngineConfig
     {
-        public string EngineName { get; set; } = "Jurassic";
+        public string EngineName { get; set; } = "JurassicJsEngine";
 
         public int StartEngines { get; set; } = 10;
 

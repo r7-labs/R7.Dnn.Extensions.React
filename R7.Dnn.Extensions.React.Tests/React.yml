@@ -1,4 +1,4 @@
 ﻿javascript-engine:
-  engine-name: JurassicJsEngine # JintJsEngine, MsieJsEngine, etc.
-  start-engines: 10
-  max-engines: 25
+  engine-name: JintJsEngine # JurassicJsEngine, MsieJsEngine, etc.
+  start-engines: 1
+  max-engines: 50
