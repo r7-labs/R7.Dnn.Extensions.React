@@ -142,6 +142,7 @@
     <Compile Include="ReactRenderer.cs" />
     <Compile Include="DnnReact.cs" />
     <Compile Include="DnnHelperExtensions.cs" />
+    <Compile Include="ReactApplicationConfig.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

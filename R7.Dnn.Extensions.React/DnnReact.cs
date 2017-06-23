@@ -1,4 +1,4 @@
-﻿//
+//
 //  DnnReact.cs
 //
 //  Author:
@@ -19,13 +19,19 @@
 //  You should have received a copy of the GNU Lesser General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+using System.IO;
+using DotNetNuke.Common;
+using JavaScriptEngineSwitcher.ChakraCore;
 using JavaScriptEngineSwitcher.Core;
 using JavaScriptEngineSwitcher.Jint;
 using JavaScriptEngineSwitcher.Jurassic;
+using JavaScriptEngineSwitcher.Msie;
+using JavaScriptEngineSwitcher.V8;
 using Newtonsoft.Json.Serialization;
+using R7.Dnn.Extensions.Configuration;
 using React;
 
-namespace R7.MiniGallery.React
+namespace R7.Dnn.Extensions.React
 {
     /// <summary>
     /// Handles initial React configuration for DNN extensions
@@ -38,24 +44,64 @@ namespace R7.MiniGallery.React
 
         static void Configure ()
         {
-            var engineSwither = JsEngineSwitcher.Instance;
+            var config = LoadReactApplicationConfig ();
 
-            // WTF: Factory should be added first to use it?
-            engineSwither.EngineFactories.Clear ();
-            engineSwither.EngineFactories.AddJurassic ();
-            engineSwither.EngineFactories.AddJint ();
+            // HACK: Preferred engine should be the first one
+            AddJsEngineByName (JsEngineSwitcher.Instance, config.JavaScriptEngine.EngineName);
+            // FIXME: Should be sufficent, but it's not, see https://github.com/reactjs/React.NET/pull/413
+            JsEngineSwitcher.Instance.DefaultEngineName = config.JavaScriptEngine.EngineName;
 
             var reactConfig = ReactSiteConfiguration.Configuration;
             reactConfig.SetLoadBabel (false);
             reactConfig.JsonSerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver ();
             reactConfig.ReuseJavaScriptEngines = true;
 
-            #if DEBUG
-
-            reactConfig.SetStartEngines (1);
-
-            #endif
+            reactConfig.SetStartEngines (config.JavaScriptEngine.StartEngines);
+            reactConfig.SetMaxEngines (config.JavaScriptEngine.MaxEngines);
         }
+
+        static ReactApplicationConfig LoadReactApplicationConfig ()
+        {
+            // TODO: ExtensionYamlConfig<T> should allow direct deserialization
+#if DEBUG
+            var configFileName = "React.Debug.yml";
+            if (!File.Exists (Path.Combine (Globals.ApplicationMapPath, configFileName))) {
+                configFileName = "React.yml";
+            }
+#else
+            var configFileName = "React.yml";
+#endif
+            return new ExtensionYamlConfig<ReactApplicationConfig> (
+                Path.Combine (Globals.ApplicationMapPath, configFileName), cfg => {
+                    return cfg;
+                }
+            ).GetInstance (0);
+        }
+
+        static void AddJsEngineByName (JsEngineSwitcher engineSwitcher, string engineName)
+        {
+            engineSwitcher.EngineFactories.Clear ();
+
+            switch (engineName) {
+                case JurassicJsEngine.EngineName:
+                    engineSwitcher.EngineFactories.AddJurassic ();
+                    break;
+                case JintJsEngine.EngineName:
+                    engineSwitcher.EngineFactories.AddJint ();
+                    break;
+                case MsieJsEngine.EngineName:
+                    engineSwitcher.EngineFactories.AddMsie ();
+                    break;
+                case ChakraCoreJsEngine.EngineName:
+                    engineSwitcher.EngineFactories.AddChakraCore ();
+                    break;
+                case V8JsEngine.EngineName:
+                    engineSwitcher.EngineFactories.AddV8 ();
+                    break;
+            }
+        }
+
+        #region Public members
 
         public static void ConfigureOnce ()
         {
@@ -84,5 +130,7 @@ namespace R7.MiniGallery.React
                 }
             }
         }
+
+        #endregion
     }
 }
