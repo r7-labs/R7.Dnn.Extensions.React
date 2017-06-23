@@ -15,7 +15,7 @@
         <copyright>Copyright 2017 Roman M. Yagodin &lt;roman.yagodin@gmail.com&gt;</copyright>
         <tags>DotNetNuke DNN React</tags>
         <dependencies>
-			<dependency id="R7.Dnn.Extensions" version="0.11.0" />
+			<dependency id="R7.Dnn.Extensions" version="[0.11.0-alpha2,)" />
             <dependency id="DotNetNuke.Web.Mvc" version="8.0.4.226" />
 			<dependency id="React.Web.Mvc4" version="3.0.1" />
 			<!-- additional JavaScript engines -->
