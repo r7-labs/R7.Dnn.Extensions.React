@@ -20,6 +20,15 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <NoWarn>CS2008</NoWarn>
+	<CustomCommands>
+      <CustomCommands>
+        <Command>
+          <type>Custom</type>
+          <name>Publish NuGet Package</name>
+          <command>msbuild /t:Build /p:Configuration=${ProjectConfig} /p:PublishNuGetPackage=true ../R7.Dnn.Extensions.React.sln</command>
+        </Command>
+      </CustomCommands>
+    </CustomCommands>	
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <Optimize>true</Optimize>
