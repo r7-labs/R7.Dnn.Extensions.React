@@ -24,6 +24,9 @@ using DotNetNuke.Web.Mvc.Helpers;
 
 namespace R7.MiniGallery.React
 {
+    /// <summary>
+    /// The <see cref="DotNetNuke.Web.Mvc.Helpers.DnnHelper" /> extension methods for React rendering
+    /// </summary>
     public static class DnnHelperExtensions
     {
         public static IHtmlString React<T> (this DnnHelper dnnHelper, string componentName, T props, string htmlTag = null, string containerId = null, bool clientOnly = false, bool serverOnly = false, string containerClass = null)

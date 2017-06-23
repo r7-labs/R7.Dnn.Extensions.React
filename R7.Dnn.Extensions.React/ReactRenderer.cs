@@ -23,6 +23,9 @@ using System.Web;
 
 namespace R7.MiniGallery.React
 {
+    /// <summary>
+    /// Renders react components and initialization code
+    /// </summary>
     public static class ReactRenderer
     {
         public static IHtmlString React<T> (string componentName, T props, string htmlTag = null, string containerId = null, bool clientOnly = false, bool serverOnly = false, string containerClass = null)

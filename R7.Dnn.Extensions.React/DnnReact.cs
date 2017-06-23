@@ -27,6 +27,9 @@ using React;
 
 namespace R7.MiniGallery.React
 {
+    /// <summary>
+    /// Handles initial React configuration for DNN extensions
+    /// </summary>
     public static class DnnReact
     {
         static readonly object reactSyncRoot = new object ();
