@@ -19,6 +19,7 @@
             <dependency id="DotNetNuke.Web.Mvc" version="8.0.4.226" />
 			<dependency id="React.Core" version="3.0.1" />
             <dependency id="React.Web" version="3.0.1" />
+			<dependency id="React.Web.Mvc4" version="3.0.1" />
 			<!-- additional JavaScript engines -->
             <dependency id="JavaScriptEngineSwitcher.Jint" version="2.3.0" />
             <dependency id="JavaScriptEngineSwitcher.Jurassic" version="2.3.1" />
