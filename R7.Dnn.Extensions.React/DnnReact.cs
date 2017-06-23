@@ -104,7 +104,7 @@ namespace R7.Dnn.Extensions.React
 
         #region Public members
 
-        public static void ConfigureOnce ()
+        static void EnsureConfigured ()
         {
             if (!_configured) {
                 lock (reactSyncRoot) {
@@ -118,6 +118,8 @@ namespace R7.Dnn.Extensions.React
 
         public static void AddScriptWithoutTransform (string fileName)
         {
+            EnsureConfigured ();
+
             lock (reactSyncRoot) {
                 ReactSiteConfiguration.Configuration.AddScriptWithoutTransform (fileName);
             }
@@ -125,6 +127,8 @@ namespace R7.Dnn.Extensions.React
 
         public static void AddScriptsWithoutTransform (params string [] fileNames)
         {
+            EnsureConfigured ();
+
             lock (reactSyncRoot) {
                 foreach (var fileName in fileNames) {
                     ReactSiteConfiguration.Configuration.AddScriptWithoutTransform (fileName);
