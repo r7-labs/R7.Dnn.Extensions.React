@@ -22,7 +22,7 @@
 using System.Web;
 using DotNetNuke.Web.Mvc.Helpers;
 
-namespace R7.MiniGallery.React
+namespace R7.Dnn.Extensions.React
 {
     /// <summary>
     /// The <see cref="DotNetNuke.Web.Mvc.Helpers.DnnHelper" /> extension methods for React rendering

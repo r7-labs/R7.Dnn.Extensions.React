@@ -21,7 +21,7 @@
 
 using System.Web;
 
-namespace R7.MiniGallery.React
+namespace R7.Dnn.Extensions.React
 {
     /// <summary>
     /// Renders react components and initialization code
