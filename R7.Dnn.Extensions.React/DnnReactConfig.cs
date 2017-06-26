@@ -35,9 +35,9 @@ namespace R7.Dnn.Extensions.React
         public JavaScriptEngineConfig JavaScriptEngine { get; set; } = new JavaScriptEngineConfig ();
 
         /// <summary>
-        /// React rendering configuration section.
+        /// Disables server-side rendering. This is useful when debugging your scripts.
         /// </summary>
-        public RenderingConfig Rendering { get; set; } = new RenderingConfig ();
+        public bool DisableServerSideRendering { get; set; }
     }
 
     /// <summary>
@@ -60,34 +60,5 @@ namespace R7.Dnn.Extensions.React
         /// Maximum number of JavaScript engines in the pool.
         /// </summary>
         public int MaxEngines { get; set; } = 25;
-    }
-
-    /// <summary>
-    /// React rendering configuration.
-    /// </summary>
-    public class RenderingConfig
-    {
-        /// <summary>
-        /// If set to <c>true</c>, force client-only rendering by passing clientOnly=true to rendering methods.
-        /// </summary>
-        public bool ForceClientOnly { get; set; }
-
-        internal bool GetEffectiveClientOnly (bool clientOnly)
-        {
-            // 0 || 0 => 0
-            // 0 || 1 => 1
-            // 1 || 0 => 1
-            // 1 || 1 => 1
-            return ForceClientOnly || clientOnly;
-        }
-
-        internal bool GetEffectiveServerOnly (bool serverOnly)
-        {
-            // !1 && 1 => 0
-            // !1 && 0 => 0
-            // !0 && 0 => 0
-            // !0 && 1 => 1
-            return !ForceClientOnly && serverOnly;
-        }
     }
 }

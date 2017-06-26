@@ -40,9 +40,7 @@ namespace R7.Dnn.Extensions.React.Tests
             Assert.Equal ("JintJsEngine", config.GetInstance (0).JavaScriptEngine.EngineName);
             Assert.Equal (1, config.GetInstance (0).JavaScriptEngine.StartEngines);
             Assert.Equal (50, config.GetInstance (0).JavaScriptEngine.MaxEngines);
-
-            Assert.NotNull (config.GetInstance (0).Rendering);
-            Assert.Equal (false, config.GetInstance (0).Rendering.ForceClientOnly);
+            Assert.Equal (false, config.GetInstance (0).DisableServerSideRendering);
         }
 
         [Fact]
@@ -58,9 +56,7 @@ namespace R7.Dnn.Extensions.React.Tests
             Assert.Equal ("JurassicJsEngine", config.GetInstance (0).JavaScriptEngine.EngineName);
             Assert.Equal (10, config.GetInstance (0).JavaScriptEngine.StartEngines);
             Assert.Equal (25, config.GetInstance (0).JavaScriptEngine.MaxEngines);
-
-            Assert.NotNull (config.GetInstance (0).Rendering);
-            Assert.Equal (false, config.GetInstance (0).Rendering.ForceClientOnly);
+            Assert.Equal (false, config.GetInstance (0).DisableServerSideRendering);
         }
     }
 }

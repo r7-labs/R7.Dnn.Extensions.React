@@ -60,6 +60,10 @@ namespace R7.Dnn.Extensions.React
             reactConfig.JsonSerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver ();
             reactConfig.ReuseJavaScriptEngines = true;
 
+            if (Config.DisableServerSideRendering) {
+                reactConfig.DisableServerSideRendering ();
+            }
+
             reactConfig.SetStartEngines (Config.JavaScriptEngine.StartEngines);
             reactConfig.SetMaxEngines (Config.JavaScriptEngine.MaxEngines);
         }
@@ -164,7 +168,7 @@ namespace R7.Dnn.Extensions.React
         /// <returns>The component's HTML</returns>
         public static IHtmlString React<T> (string componentName, T props, string htmlTag = null, string containerId = null, bool clientOnly = false, bool serverOnly = false, string containerClass = null)
         {
-            return global::React.Web.Mvc.HtmlHelperExtensions.React (null, componentName, props, htmlTag, containerId, Config.Rendering.GetEffectiveClientOnly (clientOnly), Config.Rendering.GetEffectiveServerOnly (serverOnly), containerClass);
+            return global::React.Web.Mvc.HtmlHelperExtensions.React (null, componentName, props, htmlTag, containerId, clientOnly, serverOnly, containerClass);
         }
 
         /// <summary>
@@ -180,7 +184,7 @@ namespace R7.Dnn.Extensions.React
         /// <returns>The component's HTML</returns>
         public static IHtmlString ReactWithInit<T> (string componentName, T props, string htmlTag = null, string containerId = null, bool clientOnly = false, string containerClass = null)
         {
-            return global::React.Web.Mvc.HtmlHelperExtensions.ReactWithInit (null, componentName, props, htmlTag, containerId, Config.Rendering.GetEffectiveClientOnly (clientOnly), containerClass);
+            return global::React.Web.Mvc.HtmlHelperExtensions.ReactWithInit (null, componentName, props, htmlTag, containerId, clientOnly, containerClass);
         }
 
         /// <summary>
@@ -191,7 +195,7 @@ namespace R7.Dnn.Extensions.React
         /// <returns>JavaScript for all components</returns>
         public static IHtmlString ReactInitJavaScript (bool clientOnly = false)
         {
-            return global::React.Web.Mvc.HtmlHelperExtensions.ReactInitJavaScript (null, Config.Rendering.GetEffectiveClientOnly (clientOnly));
+            return global::React.Web.Mvc.HtmlHelperExtensions.ReactInitJavaScript (null, clientOnly);
         }
 
         #endregion

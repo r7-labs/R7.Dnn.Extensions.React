@@ -1,5 +1,4 @@
-﻿rendering:
-  force-client-only: false
+﻿disable-server-side-rendering: false
 
 javascript-engine:
   engine-name: JintJsEngine # JurassicJsEngine, MsieJsEngine, etc.
