@@ -1,5 +1,5 @@
 ﻿//
-//  ReactApplicationConfig.cs
+//  DnnReactConfig.cs
 //
 //  Author:
 //       Roman M. Yagodin <roman.yagodin@gmail.com>
@@ -23,28 +23,56 @@ using YamlDotNet.Serialization;
           
 namespace R7.Dnn.Extensions.React
 {
+    /// <summary>
+    /// <see cref="R7.Dnn.Extensions.React" /> configuration.
+    /// </summary>
     public class DnnReactConfig
     {
+        /// <summary>
+        /// JavaScript engine configuration section.
+        /// </summary>
         [YamlMember (typeof (JavaScriptEngineConfig), Alias = "javascript-engine")]
         public JavaScriptEngineConfig JavaScriptEngine { get; set; } = new JavaScriptEngineConfig ();
 
+        /// <summary>
+        /// React rendering configuration section.
+        /// </summary>
         public RenderingConfig Rendering { get; set; } = new RenderingConfig ();
     }
 
+    /// <summary>
+    /// JavaScript engine configuration.
+    /// </summary>
     public class JavaScriptEngineConfig
     {
+        /// <summary>
+        /// JavaScript engine name to use.
+        /// </summary>
         public string EngineName { get; set; } = "JurassicJsEngine";
 
+        /// <summary>
+        /// Starting number of JavaScript engines in the pool.
+        /// </summary>
         public int StartEngines { get; set; } = 10;
 
+
+        /// <summary>
+        /// Maximum number of JavaScript engines in the pool.
+        /// </summary>
         public int MaxEngines { get; set; } = 25;
     }
 
+    /// <summary>
+    /// React rendering configuration.
+    /// </summary>
     public class RenderingConfig
     {
+        /// <summary>
+        /// If set to <c>true</c>, force client-only rendering by passing clientOnly=true to rendering methods.
+        /// </summary>
         public bool ForceClientOnly { get; set; }
 
-        public bool GetEffectiveClientOnly (bool clientOnly)
+        internal bool GetEffectiveClientOnly (bool clientOnly)
         {
             // 0 || 0 => 0
             // 0 || 1 => 1
@@ -53,7 +81,7 @@ namespace R7.Dnn.Extensions.React
             return ForceClientOnly || clientOnly;
         }
 
-        public bool GetEffectiveServerOnly (bool serverOnly)
+        internal bool GetEffectiveServerOnly (bool serverOnly)
         {
             // !1 && 1 => 0
             // !1 && 0 => 0
