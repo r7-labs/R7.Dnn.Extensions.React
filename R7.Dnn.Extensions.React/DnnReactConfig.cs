@@ -31,7 +31,7 @@ namespace R7.Dnn.Extensions.React
         /// <summary>
         /// Disables server-side rendering. This is useful when debugging your scripts.
         /// </summary>
-        public bool DisableServerSideRendering { get; set; }
+        public bool DisableServerSideRendering { get; set; } = false;
 
         /// <summary>
         /// Babel configuration section.
