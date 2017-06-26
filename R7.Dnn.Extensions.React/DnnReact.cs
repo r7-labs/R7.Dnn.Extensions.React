@@ -102,8 +102,6 @@ namespace R7.Dnn.Extensions.React
             }
         }
 
-        #region Public members
-
         static void EnsureConfigured ()
         {
             if (Config == null) {
@@ -114,6 +112,8 @@ namespace R7.Dnn.Extensions.React
                 }
             }
         }
+
+        #region Public members
 
         public static void AddScriptWithoutTransform (string fileName)
         {
