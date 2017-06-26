@@ -56,16 +56,15 @@ namespace R7.Dnn.Extensions.React
             JsEngineSwitcher.Instance.DefaultEngineName = Config.JavaScriptEngine.EngineName;
 
             var reactConfig = ReactSiteConfiguration.Configuration;
-            reactConfig.SetLoadBabel (false);
             reactConfig.JsonSerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver ();
-            reactConfig.ReuseJavaScriptEngines = true;
+            reactConfig.SetReuseJavaScriptEngines (Config.JavaScriptEngine.ReuseEngines);
+            reactConfig.SetStartEngines (Config.JavaScriptEngine.StartEngines);
+            reactConfig.SetMaxEngines (Config.JavaScriptEngine.MaxEngines);
+            reactConfig.SetLoadBabel (Config.LoadBabel);
 
             if (Config.DisableServerSideRendering) {
                 reactConfig.DisableServerSideRendering ();
             }
-
-            reactConfig.SetStartEngines (Config.JavaScriptEngine.StartEngines);
-            reactConfig.SetMaxEngines (Config.JavaScriptEngine.MaxEngines);
         }
 
         static DnnReactConfig LoadDnnReactConfig ()

@@ -38,6 +38,11 @@ namespace R7.Dnn.Extensions.React
         /// Disables server-side rendering. This is useful when debugging your scripts.
         /// </summary>
         public bool DisableServerSideRendering { get; set; }
+
+        /// <summary>
+        /// Whether Babel should be loaded to transform JSX to JavaScript.
+        /// </summary>
+        public bool LoadBabel { get; set; } = false;
     }
 
     /// <summary>
@@ -55,10 +60,14 @@ namespace R7.Dnn.Extensions.React
         /// </summary>
         public int StartEngines { get; set; } = 10;
 
-
         /// <summary>
         /// Maximum number of JavaScript engines in the pool.
         /// </summary>
         public int MaxEngines { get; set; } = 25;
+
+        /// <summary>
+        /// Whether JavaScript engines should be reused across requests.
+        /// </summary>
+        public bool ReuseEngines { get; set; } = true;
     }
 }

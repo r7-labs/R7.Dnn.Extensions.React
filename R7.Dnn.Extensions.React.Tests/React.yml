@@ -1,6 +1,9 @@
 ﻿disable-server-side-rendering: false
 
+load-babel: false
+
 javascript-engine:
   engine-name: JintJsEngine # JurassicJsEngine, MsieJsEngine, etc.
   start-engines: 1
   max-engines: 50
+  reuse-engines: true
