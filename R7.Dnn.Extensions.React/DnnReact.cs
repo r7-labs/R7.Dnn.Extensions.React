@@ -51,9 +51,9 @@ namespace R7.Dnn.Extensions.React
             Config = LoadDnnReactConfig ();
 
             // HACK: Preferred engine should be the first one
-            AddJsEngineByNameHack (JsEngineSwitcher.Instance, Config.JavaScriptEngine.EngineName);
+            AddJsEngineByNameHack (JsEngineSwitcher.Instance, Config.JavaScriptEngine.DefaultEngineName);
             // FIXME: Should be sufficent, but it's not, see https://github.com/reactjs/React.NET/pull/413
-            JsEngineSwitcher.Instance.DefaultEngineName = Config.JavaScriptEngine.EngineName;
+            JsEngineSwitcher.Instance.DefaultEngineName = Config.JavaScriptEngine.DefaultEngineName;
 
             var reactConfig = ReactSiteConfiguration.Configuration;
             reactConfig.JsonSerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver ();

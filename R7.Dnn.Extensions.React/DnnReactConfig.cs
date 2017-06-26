@@ -53,7 +53,7 @@ namespace R7.Dnn.Extensions.React
         /// <summary>
         /// JavaScript engine name to use.
         /// </summary>
-        public string EngineName { get; set; } = "JurassicJsEngine";
+        public string DefaultEngineName { get; set; } = "JurassicJsEngine";
 
         /// <summary>
         /// Starting number of JavaScript engines in the pool.
