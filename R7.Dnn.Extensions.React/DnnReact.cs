@@ -39,29 +39,29 @@ namespace R7.Dnn.Extensions.React
     /// </summary>
     public static class DnnReact
     {
-        static readonly object reactSyncRoot = new object ();
+        static readonly object dnnReactSyncRoot = new object ();
 
-        static volatile bool _configured;
+        public static DnnReactConfig Config;
 
         static void Configure ()
         {
-            var config = LoadReactApplicationConfig ();
+            Config = LoadDnnReactConfig ();
 
             // HACK: Preferred engine should be the first one
-            AddJsEngineByNameHack (JsEngineSwitcher.Instance, config.JavaScriptEngine.EngineName);
+            AddJsEngineByNameHack (JsEngineSwitcher.Instance, Config.JavaScriptEngine.EngineName);
             // FIXME: Should be sufficent, but it's not, see https://github.com/reactjs/React.NET/pull/413
-            JsEngineSwitcher.Instance.DefaultEngineName = config.JavaScriptEngine.EngineName;
+            JsEngineSwitcher.Instance.DefaultEngineName = Config.JavaScriptEngine.EngineName;
 
             var reactConfig = ReactSiteConfiguration.Configuration;
             reactConfig.SetLoadBabel (false);
             reactConfig.JsonSerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver ();
             reactConfig.ReuseJavaScriptEngines = true;
 
-            reactConfig.SetStartEngines (config.JavaScriptEngine.StartEngines);
-            reactConfig.SetMaxEngines (config.JavaScriptEngine.MaxEngines);
+            reactConfig.SetStartEngines (Config.JavaScriptEngine.StartEngines);
+            reactConfig.SetMaxEngines (Config.JavaScriptEngine.MaxEngines);
         }
 
-        static ReactApplicationConfig LoadReactApplicationConfig ()
+        static DnnReactConfig LoadDnnReactConfig ()
         {
             // TODO: ExtensionYamlConfig<T> should allow direct deserialization
 #if DEBUG
@@ -72,7 +72,7 @@ namespace R7.Dnn.Extensions.React
 #else
             var configFileName = "React.yml";
 #endif
-            return new ExtensionYamlConfig<ReactApplicationConfig> (
+            return new ExtensionYamlConfig<DnnReactConfig> (
                 Path.Combine (Globals.ApplicationMapPath, configFileName), cfg => {
                     return cfg;
                 }
@@ -106,11 +106,10 @@ namespace R7.Dnn.Extensions.React
 
         static void EnsureConfigured ()
         {
-            if (!_configured) {
-                lock (reactSyncRoot) {
-                    if (!_configured) {
+            if (Config == null) {
+                lock (dnnReactSyncRoot) {
+                    if (Config == null) {
                         Configure ();
-                        _configured = true;
                     }
                 }
             }
@@ -120,7 +119,7 @@ namespace R7.Dnn.Extensions.React
         {
             EnsureConfigured ();
 
-            lock (reactSyncRoot) {
+            lock (dnnReactSyncRoot) {
                 ReactSiteConfiguration.Configuration.AddScriptWithoutTransform (fileName);
             }
         }
@@ -129,7 +128,7 @@ namespace R7.Dnn.Extensions.React
         {
             EnsureConfigured ();
 
-            lock (reactSyncRoot) {
+            lock (dnnReactSyncRoot) {
                 foreach (var fileName in fileNames) {
                     ReactSiteConfiguration.Configuration.AddScriptWithoutTransform (fileName);
                 }
@@ -142,17 +141,17 @@ namespace R7.Dnn.Extensions.React
 
         public static IHtmlString React<T> (string componentName, T props, string htmlTag = null, string containerId = null, bool clientOnly = false, bool serverOnly = false, string containerClass = null)
         {
-            return global::React.Web.Mvc.HtmlHelperExtensions.React (null, componentName, props, htmlTag, containerId, clientOnly, serverOnly, containerClass);
+            return global::React.Web.Mvc.HtmlHelperExtensions.React (null, componentName, props, htmlTag, containerId, Config.Rendering.GetEffectiveClientOnly (clientOnly), Config.Rendering.GetEffectiveServerOnly (serverOnly), containerClass);
         }
 
         public static IHtmlString ReactWithInit<T> (string componentName, T props, string htmlTag = null, string containerId = null, bool clientOnly = false, string containerClass = null)
         {
-            return global::React.Web.Mvc.HtmlHelperExtensions.ReactWithInit (null, componentName, props, htmlTag, containerId, clientOnly, containerClass);
+            return global::React.Web.Mvc.HtmlHelperExtensions.ReactWithInit (null, componentName, props, htmlTag, containerId, Config.Rendering.GetEffectiveClientOnly (clientOnly), containerClass);
         }
 
         public static IHtmlString ReactInitJavaScript (bool clientOnly = false)
         {
-            return global::React.Web.Mvc.HtmlHelperExtensions.ReactInitJavaScript (null, clientOnly);
+            return global::React.Web.Mvc.HtmlHelperExtensions.ReactInitJavaScript (null, Config.Rendering.GetEffectiveClientOnly (clientOnly));
         }
 
         #endregion

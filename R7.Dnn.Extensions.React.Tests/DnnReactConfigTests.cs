@@ -1,5 +1,5 @@
-﻿//
-//  ReactApplicationConfigTests.cs
+//
+//  DnnReactConfigTests.cs
 //
 //  Author:
 //       Roman M. Yagodin <roman.yagodin@gmail.com>
@@ -25,12 +25,12 @@ using Xunit;
 
 namespace R7.Dnn.Extensions.React.Tests
 {
-    public class ReactApplicationConfigTests
+    public class DnnReactConfigTests
     {
         [Fact]
-        public void ReactApplicationConfigTest ()
+        public void DnnReactConfigTest ()
         {
-            var config = new ExtensionYamlConfig<ReactApplicationConfig> (
+            var config = new ExtensionYamlConfig<DnnReactConfig> (
                 Path.GetFullPath ("../../React.yml"), cfg => {
                     return cfg;
                 }
@@ -40,12 +40,15 @@ namespace R7.Dnn.Extensions.React.Tests
             Assert.Equal ("JintJsEngine", config.GetInstance (0).JavaScriptEngine.EngineName);
             Assert.Equal (1, config.GetInstance (0).JavaScriptEngine.StartEngines);
             Assert.Equal (50, config.GetInstance (0).JavaScriptEngine.MaxEngines);
+
+            Assert.NotNull (config.GetInstance (0).Rendering);
+            Assert.Equal (false, config.GetInstance (0).Rendering.ForceClientOnly);
         }
 
         [Fact]
-        public void DefaultReactApplicationConfigTest ()
+        public void DefaultDnnReactConfigTest ()
         {
-            var config = new ExtensionYamlConfig<ReactApplicationConfig> (
+            var config = new ExtensionYamlConfig<DnnReactConfig> (
                 Path.GetFullPath ("SomeNonExistentConfigFile.yml"), cfg => {
                     return cfg;
                 }
@@ -55,6 +58,9 @@ namespace R7.Dnn.Extensions.React.Tests
             Assert.Equal ("JurassicJsEngine", config.GetInstance (0).JavaScriptEngine.EngineName);
             Assert.Equal (10, config.GetInstance (0).JavaScriptEngine.StartEngines);
             Assert.Equal (25, config.GetInstance (0).JavaScriptEngine.MaxEngines);
+
+            Assert.NotNull (config.GetInstance (0).Rendering);
+            Assert.Equal (false, config.GetInstance (0).Rendering.ForceClientOnly);
         }
     }
 }

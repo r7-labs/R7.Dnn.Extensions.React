@@ -23,10 +23,12 @@ using YamlDotNet.Serialization;
           
 namespace R7.Dnn.Extensions.React
 {
-    public class ReactApplicationConfig
+    public class DnnReactConfig
     {
         [YamlMember (typeof (JavaScriptEngineConfig), Alias = "javascript-engine")]
         public JavaScriptEngineConfig JavaScriptEngine { get; set; } = new JavaScriptEngineConfig ();
+
+        public RenderingConfig Rendering { get; set; } = new RenderingConfig ();
     }
 
     public class JavaScriptEngineConfig
@@ -36,5 +38,28 @@ namespace R7.Dnn.Extensions.React
         public int StartEngines { get; set; } = 10;
 
         public int MaxEngines { get; set; } = 25;
+    }
+
+    public class RenderingConfig
+    {
+        public bool ForceClientOnly { get; set; }
+
+        public bool GetEffectiveClientOnly (bool clientOnly)
+        {
+            // 0 || 0 => 0
+            // 0 || 1 => 1
+            // 1 || 0 => 1
+            // 1 || 1 => 1
+            return ForceClientOnly || clientOnly;
+        }
+
+        public bool GetEffectiveServerOnly (bool serverOnly)
+        {
+            // !1 && 1 => 0
+            // !1 && 0 => 0
+            // !0 && 0 => 0
+            // !0 && 1 => 1
+            return !ForceClientOnly && serverOnly;
+        }
     }
 }

@@ -1,4 +1,7 @@
-﻿javascript-engine:
+﻿rendering:
+  force-client-only: false
+
+javascript-engine:
   engine-name: JintJsEngine # JurassicJsEngine, MsieJsEngine, etc.
   start-engines: 1
   max-engines: 50
