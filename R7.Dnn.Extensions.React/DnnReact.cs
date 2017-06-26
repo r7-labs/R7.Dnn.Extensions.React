@@ -70,7 +70,7 @@ namespace R7.Dnn.Extensions.React
 
         static DnnReactConfig LoadDnnReactConfig ()
         {
-            // TODO: ExtensionYamlConfig<T> should allow direct deserialization
+            // TODO: Deserialize config w/o calling GetInstance(0)?
 #if DEBUG
             var configFileName = "React.Debug.yml";
             if (!File.Exists (Path.Combine (Globals.ApplicationMapPath, configFileName))) {
