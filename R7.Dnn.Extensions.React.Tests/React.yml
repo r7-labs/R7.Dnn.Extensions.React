@@ -1,6 +1,7 @@
 ﻿disable-server-side-rendering: false
 
-load-babel: false
+babel:
+  load-babel: false
 
 javascript-engine:
   default-engine-name: JintJsEngine # JurassicJsEngine, MsieJsEngine, etc.

@@ -42,7 +42,7 @@ namespace R7.Dnn.Extensions.React.Tests
             Assert.Equal (50, config.GetInstance (0).JavaScriptEngine.MaxEngines);
             Assert.Equal (true, config.GetInstance (0).JavaScriptEngine.ReuseEngines);
             Assert.Equal (false, config.GetInstance (0).DisableServerSideRendering);
-            Assert.Equal (false, config.GetInstance (0).LoadBabel);
+            Assert.Equal (false, config.GetInstance (0).Babel.LoadBabel);
         }
 
         [Fact]
@@ -60,7 +60,7 @@ namespace R7.Dnn.Extensions.React.Tests
             Assert.Equal (25, config.GetInstance (0).JavaScriptEngine.MaxEngines);
             Assert.Equal (true, config.GetInstance (0).JavaScriptEngine.ReuseEngines);
             Assert.Equal (false, config.GetInstance (0).DisableServerSideRendering);
-            Assert.Equal (false, config.GetInstance (0).LoadBabel);
+            Assert.Equal (false, config.GetInstance (0).Babel.LoadBabel);
         }
     }
 }

@@ -29,20 +29,20 @@ namespace R7.Dnn.Extensions.React
     public class DnnReactConfig
     {
         /// <summary>
-        /// JavaScript engine configuration section.
-        /// </summary>
-        [YamlMember (typeof (JavaScriptEngineConfig), Alias = "javascript-engine")]
-        public JavaScriptEngineConfig JavaScriptEngine { get; set; } = new JavaScriptEngineConfig ();
-
-        /// <summary>
         /// Disables server-side rendering. This is useful when debugging your scripts.
         /// </summary>
         public bool DisableServerSideRendering { get; set; }
 
         /// <summary>
-        /// Whether Babel should be loaded to transform JSX to JavaScript.
+        /// Babel configuration section.
         /// </summary>
-        public bool LoadBabel { get; set; } = false;
+        public BabelConfig Babel { get; set; } = new BabelConfig ();
+
+        /// <summary>
+        /// JavaScript engine configuration section.
+        /// </summary>
+        [YamlMember (typeof (JavaScriptEngineConfig), Alias = "javascript-engine")]
+        public JavaScriptEngineConfig JavaScriptEngine { get; set; } = new JavaScriptEngineConfig ();
     }
 
     /// <summary>
@@ -69,5 +69,16 @@ namespace R7.Dnn.Extensions.React
         /// Whether JavaScript engines should be reused across requests.
         /// </summary>
         public bool ReuseEngines { get; set; } = true;
+    }
+
+    /// <summary>
+    /// Babel configuration.
+    /// </summary>
+    public class BabelConfig
+    {
+        /// <summary>
+        /// Whether Babel should be loaded to transform JSX to JavaScript.
+        /// </summary>
+        public bool LoadBabel { get; set; } = false;
     }
 }
