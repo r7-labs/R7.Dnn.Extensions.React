@@ -71,16 +71,8 @@ namespace R7.Dnn.Extensions.React
         static DnnReactConfig LoadDnnReactConfig ()
         {
             // TODO: Deserialize config w/o calling GetInstance(0)?
-#if DEBUG
-            var configFileName = "R7.Dnn.Extensions.React.Debug.yml";
-            if (!File.Exists (Path.Combine (Globals.ApplicationMapPath, configFileName))) {
-                configFileName = "R7.Dnn.Extensions.React.yml";
-            }
-#else
-            var configFileName = "R7.Dnn.Extensions.React.yml";
-#endif
             return new ExtensionYamlConfig<DnnReactConfig> (
-                Path.Combine (Globals.ApplicationMapPath, configFileName), cfg => {
+                Path.Combine (Globals.ApplicationMapPath, "R7.Dnn.Extensions.React.yml"), cfg => {
                     return cfg;
                 }
             ).GetInstance (0);
