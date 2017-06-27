@@ -72,6 +72,9 @@
                         <assembly>
                             <name>WebActivatorEx.dll</name>
                         </assembly>
+						<assembly>
+                            <name>Newtonsoft.Json.dll</name>
+                        </assembly>
                     </assemblies>
                 </component>
                 <component type="File">

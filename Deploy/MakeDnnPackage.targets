@@ -18,6 +18,7 @@
 			<InstallBinaryFiles Include="$(MainProjectOutputPath)/ClearScript.dll" />
 			<InstallBinaryFiles Include="$(MainProjectOutputPath)/VroomJs.dll" />
 			<InstallBinaryFiles Include="$(MainProjectOutputPath)/WebActivatorEx.dll" />
+			<InstallBinaryFiles Include="$(MainProjectOutputPath)/Newtonsoft.Json.dll" />
 		</ItemGroup>
         <!-- Declare manifest files -->
         <ItemGroup>
