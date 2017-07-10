@@ -50,9 +50,8 @@ namespace R7.Dnn.Extensions.React
         {
             Config = LoadDnnReactConfig ();
 
-            // HACK: Preferred engine should be the first one
-            AddJsEngineByNameHack (JsEngineSwitcher.Instance, Config.JavaScriptEngine.DefaultEngineName);
-            // FIXME: Should be sufficent, but it's not, see https://github.com/reactjs/React.NET/pull/413
+            // register JS engine defined in config
+            AddJsEngineByName (JsEngineSwitcher.Instance, Config.JavaScriptEngine.DefaultEngineName);
             JsEngineSwitcher.Instance.DefaultEngineName = Config.JavaScriptEngine.DefaultEngineName;
 
             var reactConfig = ReactSiteConfiguration.Configuration;
@@ -77,7 +76,7 @@ namespace R7.Dnn.Extensions.React
             ).GetInstance (0);
         }
 
-        static void AddJsEngineByNameHack (JsEngineSwitcher engineSwitcher, string engineName)
+        static void AddJsEngineByName (JsEngineSwitcher engineSwitcher, string engineName)
         {
             engineSwitcher.EngineFactories.Clear ();
 
