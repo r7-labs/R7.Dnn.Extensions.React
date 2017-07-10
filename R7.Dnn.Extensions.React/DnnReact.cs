@@ -59,6 +59,7 @@ namespace R7.Dnn.Extensions.React
             reactConfig.SetReuseJavaScriptEngines (Config.JavaScriptEngine.ReuseEngines);
             reactConfig.SetStartEngines (Config.JavaScriptEngine.StartEngines);
             reactConfig.SetMaxEngines (Config.JavaScriptEngine.MaxEngines);
+            reactConfig.SetMaxUsagesPerEngine (Config.JavaScriptEngine.MaxUsagesPerEngine);
             reactConfig.SetLoadBabel (Config.Babel.LoadBabel);
 
             if (Config.DisableServerSideRendering) {

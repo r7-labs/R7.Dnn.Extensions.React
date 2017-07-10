@@ -41,6 +41,7 @@ namespace R7.Dnn.Extensions.React.Tests
             Assert.Equal (1, config.GetInstance (0).JavaScriptEngine.StartEngines);
             Assert.Equal (50, config.GetInstance (0).JavaScriptEngine.MaxEngines);
             Assert.Equal (true, config.GetInstance (0).JavaScriptEngine.ReuseEngines);
+            Assert.Equal (100, config.GetInstance (0).JavaScriptEngine.MaxUsagesPerEngine);
             Assert.Equal (false, config.GetInstance (0).DisableServerSideRendering);
             Assert.Equal (false, config.GetInstance (0).Babel.LoadBabel);
         }
@@ -59,6 +60,7 @@ namespace R7.Dnn.Extensions.React.Tests
             Assert.Equal (10, config.GetInstance (0).JavaScriptEngine.StartEngines);
             Assert.Equal (25, config.GetInstance (0).JavaScriptEngine.MaxEngines);
             Assert.Equal (true, config.GetInstance (0).JavaScriptEngine.ReuseEngines);
+            Assert.Equal (null, config.GetInstance (0).JavaScriptEngine.MaxUsagesPerEngine);
             Assert.Equal (false, config.GetInstance (0).DisableServerSideRendering);
             Assert.Equal (false, config.GetInstance (0).Babel.LoadBabel);
         }

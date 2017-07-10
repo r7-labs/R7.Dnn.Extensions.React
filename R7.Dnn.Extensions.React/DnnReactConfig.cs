@@ -20,6 +20,7 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using YamlDotNet.Serialization;
+using System.Diagnostics.Contracts;
           
 namespace R7.Dnn.Extensions.React
 {
@@ -69,6 +70,12 @@ namespace R7.Dnn.Extensions.React
         /// Whether JavaScript engines should be reused across requests.
         /// </summary>
         public bool ReuseEngines { get; set; } = true;
+
+        /// <summary>
+        /// The maximum number of times an engine can be reused before it is disposed.
+        /// </summary>
+        /// <value>The max usages per engine.</value>
+        public int? MaxUsagesPerEngine { get; set; } = null;
     }
 
     /// <summary>

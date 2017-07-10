@@ -8,3 +8,4 @@ javascript-engine:
   start-engines: 1
   max-engines: 50
   reuse-engines: true
+  max-usages-per-engine: 100
