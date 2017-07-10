@@ -74,7 +74,6 @@ namespace R7.Dnn.Extensions.React
         /// <summary>
         /// The maximum number of times an engine can be reused before it is disposed.
         /// </summary>
-        /// <value>The max usages per engine.</value>
         public int? MaxUsagesPerEngine { get; set; } = null;
     }
 
