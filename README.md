@@ -1,6 +1,6 @@
 # R7.Dnn.Extensions.React
 
-[![R7.Dnn.Extensions.React on NuGet.org](https://img.shields.io/nuget/v/R7.Dnn.Extensions.React.svg)](https://www.nuget.org/packages/R7.Dnn.Extensions)
+[![R7.Dnn.Extensions.React on NuGet.org](https://img.shields.io/nuget/v/R7.Dnn.Extensions.React.svg)](https://www.nuget.org/packages/R7.Dnn.Extensions.React)
 
 *R7.Dnn.Extensions.React* is a library for DNN Platform web CMS extensions development which allow you to utilize
 [ReactJS.NET](https://reactjs.net/) for server-side and client-side rendering in MVC and WebForms-based extensions as well.
