@@ -15,15 +15,15 @@
         <copyright>Copyright 2017 Roman M. Yagodin &lt;roman.yagodin@gmail.com&gt;</copyright>
         <tags>DotNetNuke DNN React</tags>
         <dependencies>
-			<dependency id="R7.Dnn.Extensions" version="0.11.0" />
+			<dependency id="R7.Dnn.Extensions" version="0.12.0" />
             <dependency id="DotNetNuke.Web.Mvc" version="8.0.4.226" />
-			<dependency id="React.Web.Mvc4" version="3.0.1" />
+			<dependency id="React.Web.Mvc4" version="3.1.0" />
 			<!-- additional JavaScript engines -->
-            <dependency id="JavaScriptEngineSwitcher.Jint" version="2.3.0" />
-            <dependency id="JavaScriptEngineSwitcher.Jurassic" version="2.3.1" />
+            <dependency id="JavaScriptEngineSwitcher.Jint" version="2.4.0" />
+            <dependency id="JavaScriptEngineSwitcher.Jurassic" version="2.4.2" />
 			<!-- use more recent Jint and Msie engines -->
 			<dependency id="jint" version="2.10.4" />
-            <dependency id="MsieJavaScriptEngine" version="2.1.2" />
+            <dependency id="MsieJavaScriptEngine" version="2.2.3" />
         </dependencies>
     </metadata>
     <files>
