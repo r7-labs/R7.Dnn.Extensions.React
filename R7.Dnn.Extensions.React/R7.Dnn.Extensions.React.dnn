@@ -1,6 +1,6 @@
 ﻿<dotnetnuke type="Package" version="5.0">
     <packages>
-        <package name="R7.Dnn.Extensions.React" type="Library" version="00.02.00">
+        <package name="R7.Dnn.Extensions.React" type="Library" version="00.03.00">
             <friendlyName>R7.Dnn.Extensions.React</friendlyName>
             <description>R7.Dnn.Extensions.React is a  library for DNN Platform web CMS extensions development with ReactJS.NET.</description>
             <owner>
@@ -13,7 +13,7 @@
             <releaseNotes src="releaseNotes.htm" />
             <dependencies>
                 <dependency type="coreVersion">08.00.04</dependency>
-				<dependency type="managedPackage" version="0.12.0">R7.Dnn.Extensions</dependency>
+				<dependency type="managedPackage" version="0.13.0">R7.Dnn.Extensions</dependency>
 				<dependency type="package">React</dependency>
                 <dependency type="package">ReactDOM</dependency>
             </dependencies>
