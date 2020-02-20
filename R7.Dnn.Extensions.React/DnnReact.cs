@@ -69,7 +69,8 @@ namespace R7.Dnn.Extensions.React
 
         static DnnReactConfig LoadDnnReactConfig ()
         {
-            // TODO: Deserialize config w/o calling GetInstance(0)?
+            // TODO: Deserialize config w/o calling GetInstance()?
+            // TODO: Convert to GetInstance(-1) after changes in the base lib
             return new ExtensionYamlConfig<DnnReactConfig> (
                 Path.Combine (Globals.ApplicationMapPath, "R7.Dnn.Extensions.React.yml"), cfg => {
                     return cfg;
